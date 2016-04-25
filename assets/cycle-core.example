@@ -1,0 +1,13 @@
+function main(sources) {
+  const sinks = {
+    DOM: // transform sources.DOM through
+         // a series of RxJS operators
+  };
+  return sinks;
+}
+
+const drivers = {
+  DOM: makeDOMDriver('#app') // a Cycle.js helper factory
+};
+
+Cycle.run(main, drivers); // solve the circular dependency

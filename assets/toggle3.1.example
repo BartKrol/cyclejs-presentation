@@ -1,0 +1,3 @@
+function ClickyBox({ DOM, $props })) {
+  const props$ = props$.map(props => props.initial).first();
+}

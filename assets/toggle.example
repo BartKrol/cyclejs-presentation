@@ -1,0 +1,10 @@
+// HyperScript
+const sinks = {
+  DOM: Rx.Observable.just(false)
+    .map(toggled =>
+      div([
+        input({ type: "checkbox" }),
+        label(toggled ? "ON" : "OFF")
+      ])
+    )
+};

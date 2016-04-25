@@ -1,0 +1,4 @@
+function intent(DOM) {
+  return DOM.select("input").events("change")
+                             .map(e => e.target.value);
+}

@@ -1,0 +1,6 @@
+function ClickyBox({ DOM, $props })) {
+  const props$ = props$.map(props => props.initial).first();
+  const newValue$ = DOM.select("input").events("change")
+                      .map(e => e.target.value);
+  const value$ = props$.concat(newValue$);
+}

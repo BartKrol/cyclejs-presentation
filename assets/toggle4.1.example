@@ -1,0 +1,10 @@
+function ClickyBox({ DOM, props$ })) {
+  const change$ = intent(DOM);
+  const value$ = model(change$, props$);
+  const vtree$ = view($value);
+
+  return {
+    DOM: vtree$,
+    value$
+  };
+}
