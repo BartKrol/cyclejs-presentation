@@ -1,0 +1,11 @@
+const sinks = {
+  DOM: sources.DOM.select("input").events("change")
+    .map(ev => ev.target.checked)
+    .startWith(false)
+    .map(toggled =>
+      div([
+        input({ type: "checkbox" }),
+        label(toggled ? "ON" : "OFF")
+      ])
+    )
+};

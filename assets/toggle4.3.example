@@ -1,0 +1,4 @@
+function model(value$, props$) {
+  const props$ = props$.map(props => props.initial).first();
+  const value$ = props$.concat(newValue$);
+}

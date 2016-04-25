@@ -1,0 +1,6 @@
+function computer(userEvents) {
+  return userEvents
+    .map(event => event.value)
+    .filter(x == 'ENTER')
+    .flatMap(transformItToScreenPixels);
+}

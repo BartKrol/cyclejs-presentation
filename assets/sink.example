@@ -1,0 +1,9 @@
+sources.DOM.select('.field').events('input')
+    .map(ev => ev.target.value)
+    .startWith('')
+    .map(name =>
+      div([
+        input('.field', {attributes: {type: 'text'}}),
+        h1('Hello ' + name),
+      ])
+    );

@@ -1,0 +1,4 @@
+getCandidatesFromLocalMemory()
+    .filter(c => c.experience > 5)
+    .map(c => c.name)
+    .forEach((c, i) => console.log(`${i}. ${c}`))

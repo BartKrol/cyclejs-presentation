@@ -1,0 +1,14 @@
+function ClickyBox({ DOM, $props })) {
+  const props$ = props$.map(props => props.initial).first();
+  const newValue$ = DOM.select("input").events("change")
+                      .map(e => e.target.value);
+  const value$ = props$.concat(newValue$);
+  const view$ = Rx.Observable
+    .combineLatest(props$, value$, (props, toggled) => {
+      return div([
+        input({ type: "checkbox" }),
+        label(toggled.toggled ? props.on : props.off)
+      ])
+    )
+  };
+}
