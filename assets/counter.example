@@ -1,0 +1,19 @@
+function main(sources) {
+    const decrement$ = sources.DOM
+      .select('.decrement').events('click').map(ev => -1);
+
+    const increment$ = sources.DOM
+      .select('.increment').events('click').map(ev => +1);
+
+    const action$ = Observable.merge(decrement$, increment$);
+    const count$ = action$.startWith(0).scan((x,y) => x+y);
+
+    const vtree$ = count$.map(count =>
+      div([
+        button('.decrement', 'Decrement'),
+        button('.increment', 'Increment'),
+        p('Counter: ' + count)
+      ])
+    );
+    return { DOM: vtree$ };
+  }

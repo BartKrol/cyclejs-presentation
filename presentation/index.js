@@ -12,13 +12,12 @@ import {
   ListItem,
   List,
   Slide,
+  Layout,
   Spectacle
   // BlockQuote,
   // Cite,
-  // Text,
   // Markdown,
   // Quote,
-  // Layout,
   // Fill,
 } from "spectacle";
 
@@ -54,7 +53,11 @@ const images = {
   pointless: require("../assets/pointless.gif"),
   things: require("../assets/things.png"),
   map: require("../assets/map.png"),
-  clicks: require("../assets/clicks.png")
+  clicks: require("../assets/clicks.png"),
+  xTeam: require("../assets/x-team.svg"),
+  bloo: require("../assets/bloo.png"),
+  cycleLogo: require("../assets/cycle-logo.svg"),
+  request: require("../assets/server.png")
 };
 
 preloader(images);
@@ -81,6 +84,31 @@ export default class Presentation extends React.Component {
             <Heading size={1} fit caps>
               with Cycle.js
             </Heading>
+            <Image src={images.cycleLogo} style={ padding } width="120px"/>
+          </Slide>
+
+          <Slide transition={["zoom", "slide"]} bgColor="primary">
+            <Layout>
+              <Image width="120px" height="120px" src={images.bloo}/>
+            </Layout>
+            <Layout>
+              <Heading size={4} textSize="90" textColor="secondary">
+                Bartosz Król
+              </Heading>
+            </Layout>
+            <Layout>
+              <Heading size={4} textSize="30" textColor="secondary">
+                Full Stack Engineer at X-Team
+              </Heading>
+            </Layout>
+            <Layout>
+              <Heading size={4} textSize="30" textColor="secondary">
+                Digital Nomad
+              </Heading>
+            </Layout>
+            <Layout>
+              <Image src={images.xTeam}/>
+            </Layout>
           </Slide>
 
           <Slide transition={["fade"]} bgColor="primary">
@@ -119,7 +147,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
-            <Heading fit size={2}>
+            <Heading size={2}>
               #1 UI is a Function
             </Heading>
           </Slide>
@@ -136,6 +164,12 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
             <Heading size={2}>Are those events?</Heading>
+
+            <Image src={images.request} style={ padding} height="500px"/>
+          </Slide>
+
+          <Slide transition={["zoom", "slide"]} bgColor="primary">
+            <Heading size={2}>What about those?</Heading>
 
             <Image src={images.mouse} style={ padding} height="500px"/>
           </Slide>
@@ -180,16 +214,26 @@ export default class Presentation extends React.Component {
               style={ padding }
               lang="jsx"
               textSize="20px"
-              source={require("raw!../assets/observables.example")}
+              source={require("raw!../assets/var.example")}
               margin="20px auto"
             />
+
+            <Appear>
+              <CodePane
+                style={ padding }
+                lang="jsx"
+                textSize="20px"
+                source={require("raw!../assets/observables.example")}
+                margin="20px auto"
+              />
+            </Appear>
           </Slide>
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
-            <Heading fit size={2}>
+            <Heading textAlign="left" size={2}>
               #1 UI is a Function
             </Heading>
-            <Heading fit size={2}>
+            <Heading style={ {paddingTop: "5px"} } textAlign="left" size={2}>
               #2 UI is Async
             </Heading>
           </Slide>
@@ -223,14 +267,20 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
-            <Heading fit size={2}>
+            <Heading textAlign="left" size={2}>
               #1 UI is a Function
             </Heading>
-            <Heading fit size={2}>
+            <Heading textAlign="left" size={2}>
               #2 UI is Async
             </Heading>
-            <Heading fit size={2}>
+            <Heading style={ {paddingTop: "5px"} } textAlign="left" size={2}>
               #3 UI is a Cycle
+            </Heading>
+          </Slide>
+
+          <Slide transition={["zoom", "slide"]} bgColor="primary">
+            <Heading size={2} fit caps>
+              How to represent a cycle?
             </Heading>
           </Slide>
 
@@ -239,18 +289,12 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
-            <Heading size={2} fit caps>
-              How to represent a cycle?
-            </Heading>
-
-            <Appear>
               <CodePane
                 lang="jsx"
                 textSize="20px"
                 source={require("raw!../assets/cycle.example")}
                 margin="20px auto"
               />
-            </Appear>
           </Slide>
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
@@ -379,8 +423,17 @@ export default class Presentation extends React.Component {
             />
           </Slide>
 
+          <Slide transition={["zoom", "slide"]} align="flex-start" bgColor="primary">
+            <iframe width="1000px" height="700px" style={ { posiion: "absolute", top: "0px", left: "0px" } } src="/examples/draw-cycle/index.html" />
+          </Slide>
+
           <Slide transition={["zoom", "slide"]} bgColor="primary">
-            <Link fit caps href="https://glebbahmutov.com/draw-cycle/" textSize="50px" textColor="#6BC0FF">Interactive Example</Link>
+            <CodePane
+              lang="js"
+              textSize="20px"
+              source={require("raw!../assets/cycle-core.example")}
+              margin="20px auto"
+            />
           </Slide>
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
@@ -437,11 +490,14 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
-            <List>
-              <ListItem>cycle.min.js: <strong>189KB</strong></ListItem>
-              <ListItem>cycle-dom.min.js: <strong>321KB</strong></ListItem>
-              <ListItem>rx.all.min.js: <strong>136KB</strong></ListItem>
+            <Heading textAlign="left" size={4} textColor="secondary">Cycle.js - 244KB</Heading>
+            <List fit>
+              <ListItem>cycle.min.js: <strong>4KB</strong></ListItem>
+              <ListItem>cycle-dom.min.js: <strong>96KB</strong></ListItem>
+              <ListItem>rx.all.min.js: <strong>144KB</strong></ListItem>
             </List>
+            <Heading textAlign="left" size={4} textColor="secondary">Angular - 158KB</Heading>
+            <Heading textAlign="left" size={4} textColor="secondary">React - 146KB + 7KB</Heading>
           </Slide>
         </Deck>
       </Spectacle>

@@ -4,13 +4,19 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-  entry: [
-    "babel-polyfill",
-    "./index"
-  ],
+  entry: {
+    bundle: [
+      "babel-polyfill",
+      "./index"
+    ],
+    toggle: [
+      "babel-polyfill",
+      "./examples/toggle"
+    ]
+  },
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "[name].js",
     publicPath: "/dist/"
   },
   plugins: [
@@ -41,8 +47,16 @@ module.exports = {
       test: /\.(png|jpg)$/,
       loader: "url-loader?limit=8192"
     }, {
+      test: /\.png$/,
+      loader: "url-loader?mimetype=image/png",
+      include: path.join(__dirname, "assets")
+    }, {
       test: /\.gif$/,
       loader: "url-loader?mimetype=image/gif",
+      include: path.join(__dirname, "assets")
+    }, {
+      test: /\.jpg$/,
+      loader: "url-loader?mimetype=image/jpg",
       include: path.join(__dirname, "assets")
     }, {
       test: /\.svg$/,
