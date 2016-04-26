@@ -1,0 +1,4 @@
+getDataFromVariable()
+  .filter(data => data != null)
+  .map(data => `Hello ${data.name}`)
+  .flatMap(display);

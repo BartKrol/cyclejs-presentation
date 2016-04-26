@@ -19,7 +19,7 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/examples",  express.static('examples'));
+app.use("/examples", express.static(__dirname + '/examples'));
 
 app.get("/:id", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));

@@ -4,16 +4,17 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-    entry: {
-      bundle: [
-        "babel-polyfill",
-        "./index"
-      ],
-      toggle: [
-        "./examples/toggle"
-      ]
-    },
-    output: {
+  entry: {
+    bundle: [
+      "babel-polyfill",
+      "./index"
+    ],
+    toggle: [
+      "babel-polyfill",
+      "./examples/toggle"
+    ]
+  },
+  output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].js",
     publicPath: "/dist/"

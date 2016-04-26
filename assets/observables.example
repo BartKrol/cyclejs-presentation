@@ -1,6 +1,4 @@
-function computer(userEvents) {
-  return userEvents
-    .map(event => event.value)
-    .filter(x == 'ENTER')
-    .flatMap(transformItToScreenPixels);
-}
+getDataFromNetwork()
+  .filter(data => data != null)
+  .map(data => `Hello ${data.name}`)
+  .flatMap(display);
