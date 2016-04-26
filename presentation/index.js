@@ -430,7 +430,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide transition={["zoom", "slide"]} align="flex-start" bgColor="primary">
-            <iframe width="1000px" height="700px" style={ { posiion: "absolute", top: "0px", left: "0px" } } src="/examples/draw-cycle/index.html" />
+            <iframe width="1000px" height="700px" style={ { posiion: "absolute", top: "0px", left: "0px" } } src="examples/draw-cycle/index.html" />
           </Slide>
 
           <Slide transition={["zoom", "slide"]} bgColor="primary">
