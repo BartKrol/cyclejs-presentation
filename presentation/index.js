@@ -437,7 +437,7 @@ export default class Presentation extends React.Component {
             <CodePane
               lang="js"
               textSize="20px"
-              source={require("raw!../assets/cycle-core.example")}
+              source={require("raw!../assets/counter.example")}
               margin="20px auto"
             />
           </Slide>
